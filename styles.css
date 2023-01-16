@@ -1,0 +1,122 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding: 20px;
+    
+}
+
+#btn_add{
+    height: 1.6rem;
+    border: 1px solid #000;
+    width: 70px;    
+    border-radius: 4px;
+}
+#btn_add:hover{
+background-color: lightgray;
+}
+
+.btn_delete{
+    background-color: rgb(255, 0, 0);
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #000;
+    border-radius: 4px;
+    font-size: x-small;
+}
+
+.btn_img {
+     height: 1.6rem; 
+    border: 1px solid #000;
+    width: 70px;    
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-left: 5px;
+   
+}
+.btn_img:active {
+    background-color: #ddd;
+
+}
+
+.btn_delete:hover{
+    background-color: rgb(179, 11, 11);
+}
+
+.tablebody input {
+    height: 2rem;
+    border: none;
+    text-align: left;    
+    padding: 0px 5px;   
+
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    -webkit-transition: 0.5s;
+    transition: 0.3s;
+    outline: none;   
+ 
+}
+.tablebody input::placeholder {
+    color:lightgray;
+}
+
+.tablebody input[type=number] {
+    text-align: right; 
+}
+.tablebody input[type=date] {
+    text-align: center; 
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.tablebody input[type=month] {
+    text-align: center; 
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+.tablebody input[type=color] {
+    text-align: right; 
+    padding:5px
+}
+
+.tablebody input:focus {
+    background-color: lightyellow;
+    border: 1px solid lightskyblue;
+}
+.tablebody input:focus::placeholder {
+    color:lightskyblue;
+}
+
+table {
+    border: 1px solid gray; 
+    border-radius: 4px;
+    padding:5px;
+    background-color: #eee;
+}
+
+td {
+    text-align: center;    
+    padding: 0px 2px;   
+}
+td:first-child{
+    border-bottom: none;  
+}
+
+th {
+    text-align: center;   
+    
+    padding: 4px; 
+    background-color: lightgray;
+    border-radius: 3px;
+    
+    font-size: small;
+}
+th:first-child{
+    background-color:inherit;
+}

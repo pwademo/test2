@@ -1,0 +1,24 @@
+{
+    "name":"PWA", 
+    "short_name":"PWA", 
+    "theme_color": "#cc00aa",
+    "background_color": "#cc00aa",
+    "display": "standalone",
+    "description":"Et forsøg på at lave en PWA",
+    "scope": "/testPWA/",
+    "start_url": "/testPWA/",
+    "icons": [
+        {
+          "src": "./favicons/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any"
+        },       
+        {
+          "src": "./favicons/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+}

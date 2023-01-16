@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Forhindre at html cache anvendes -->
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='cache-control' content='no-store'>
+    <meta http-equiv="cache-control" content="max-age=0"> 
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+
+    <!-- Til IOS 
+    https://www.simicart.com/blog/pwa-ios-15/
+    -->
+
+    <meta name="theme-color" content="#ccc">
+    <link rel="apple-touch-icon" href="/android-chrome-192x192/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" href="/android-chrome-192x192/android-chrome-512x512.png">
+
+    <title>testPWA Home</title>
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+	<link rel="stylesheet" href="styles.css">
+
+
+    <link rel="manifest" href="manifest.json"> 
+
+
+
+    <!-- <script src="navbar.js" defer></script> -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="title">IndexedDB</h1>
+        <p id="isProbablyOnline">Is Probably ...</p>
+        <p id="isOnline">Is Online confirmed by fetch call to server ...</p>
+        <p id="installedMode">Install mode ...</p> 
+        <p id="cacheVersion">Version ...</p>  
+    </header>
+    <section>
+        <button id="btn_add">Add new</button>        
+        <br/><br/>
+    </section>
+    <section>
+        <div style="overflow-x:auto;">
+            <table id="myTable">
+                <thead class="tablehead"></thead>
+                <tbody class="tablebody"></tbody>
+            </table>
+        </div>
+    </section>
+    <footer>
+<button type="button"></button>
+    </footer>
+    <script src='app.js'></script> 
+</body>
+</html>
