@@ -1,7 +1,7 @@
 /*  */
 
 const nav=document.querySelector(".navbar");
-fetch("/testPWA/navbar.html")
+fetch("/test2/navbar.html")
 .then(
     res=>res.text()
 )

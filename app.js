@@ -2,7 +2,7 @@ if ('serviceWorker' in navigator) {
     //navigator.serviceWorker.register('/sw.js');
     //updateViaCache none, meaning the HTTP cache is never consulted.
     navigator.serviceWorker    
-    .register("/sw.js", {updateViaCache: "none", })
+    .register("./sw.js", {updateViaCache: "none", })
     .then((registration) => {
       registration.addEventListener("updatefound", () => {
         // If updatefound is fired, it means that there's a new service worker being installed.
@@ -274,6 +274,7 @@ const createElementTableHead = ()=>{
 
 
 const convertBase64 = (file) => {
+    console.log(file);
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
@@ -288,14 +289,72 @@ const convertBase64 = (file) => {
     });
 };
 
+
+
+
+const convertImgToResizedBase64 = (file) => {
+    const max_size = 300;//max width or height
+
+    return new Promise((resolve, reject) => {            
+        let allowedExtension = ['image/jpeg', 'image/jpg', 'image/png','image/gif','image/bmp'];            
+        if (allowedExtension.indexOf(file.type)===-1) {
+            reject(`${file.type} is not a valid filetype`);
+        }
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = (ev) => {
+            const image = new Image();                    
+                image.src = ev.target.result;
+                image.onload = (imageEvent) =>
+                {                        
+                    let w = image.width;
+                    let h = image.height;        
+                    if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
+                    } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
+    
+                    const canvas = document.createElement('canvas');
+                    canvas.width = w;
+                    canvas.height = h;
+                    canvas.getContext('2d').drawImage(image, 0, 0, w, h);
+                    const dataURL = canvas.toDataURL("image/jpeg", 1.0);
+                    canvas.remove();
+                    resolve(dataURL);
+                }           
+    };
+    fileReader.onerror = (error) => {
+        reject(error);
+    };
+});
+};
+
+
+
 const uploadImage = async (event) => {
     const file = event.target.files[0];
     const base64 = await convertBase64(file);
-    //console.log(base64);
+    console.log(base64);
     return base64;
 /*     avatar.src = base64;
     textArea.innerText = base64; */
 };
+
+
+function imageToDataUri(img, width, height) {
+
+    // create an off-screen canvas
+    var canvas = document.createElement('canvas'),
+        ctx = canvas.getContext('2d');
+
+    // set its dimension to target size
+    canvas.width = width;
+    canvas.height = height;
+
+    // draw source image into the off-screen canvas:
+   // ctx.drawImageimg, 0, 0, width, height);
+
+    // encode image to data-uri with base64 version of compressed image
+    return canvas.toDataURL();
+}
 
 const createElementUI = (id, data)=>{
     //tr table row
@@ -343,24 +402,35 @@ const createElementUI = (id, data)=>{
                 _input.click();
             });
             const img0 = document.createElement("IMG");    
-            img0.width=120;
+            //img0.width=120;
             img0.src=valuefromdb;
             td.appendChild(btn);
             td.appendChild(img0); 
           } 
 
+
+
           _input.addEventListener("change",async (e)=>{              
               let obj = {};      
               if(e.target.type==="file")
               {
-                const base64=await uploadImage(e); 
+
+                //const base64=await uploadImage(e); 
+
+                let file=e.target.files[0];
+                const base64=await convertImgToResizedBase64(file);
+                console.log(base64);
+                
+                
+
+
                 obj[value.name] =base64;
                 //remove img-tag from UI if img-tag alraedy exist
                 const imgexisting=td.querySelector("IMG");
                 if(imgexisting){imgexisting.remove();}
 
                 const img = document.createElement("IMG");    
-                img.width=120;
+               // img.width=120;
                 img.src=base64;
                 td.appendChild(img); 
                 

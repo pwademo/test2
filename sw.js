@@ -1,18 +1,18 @@
 
 // Files to cache
-const version="1.0.79";
+const version="1.0.91";
 const cacheName = `${version}_static`;
 const cacheNames=[cacheName];
 const appShellFiles = [
-  '/testPWA/',
-  '/testPWA/index.html',
-  '/testPWA/app.js',
-  '/testPWA/style.css',
-  '/testPWA/styles.css',
-  '/testPWA/manifest.json',
-  '/testPWA/icons/icon-192x192.png',
-  '/testPWA/icons/icon-512x512.png',
-  '/testPWA/favicon.ico'
+  '/test2/',
+  '/test2/index.html',
+  '/test2/app.js',
+  '/test2/style.css',
+  '/test2/styles.css',
+  '/test2/manifest.json',
+  '/test2/favicons/icon-192x192.png',
+  '/test2/favicons/icon-512x512.png',
+  '/test2/favicons/favicon.ico'
 ];
 
 

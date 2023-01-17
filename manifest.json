@@ -5,8 +5,8 @@
     "background_color": "#cc00aa",
     "display": "standalone",
     "description":"Et forsøg på at lave en PWA",
-    "scope": "/testPWA/",
-    "start_url": "/testPWA/",
+    "scope": "/test2/",
+    "start_url": "/test2/",
     "icons": [
         {
           "src": "./favicons/android-chrome-192x192.png",
